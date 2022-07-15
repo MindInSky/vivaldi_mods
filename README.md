@@ -5,7 +5,11 @@
 - Addess bar in tab (saving space ftw) in this [comment](https://forum.vivaldi.net/topic/34187/merge-tabs-and-address-bar/50?lang=en-GB)
 - Additional utils in panels ( On the fence on this one )[github link](https://github.com/LonMcGregor/VivaldiMods/blob/master/mods/panel_actions.js)
 
-## Developing
+## Usage
+Just pull inside the directory where mods should be located check the How to apply mods section for details
+And select the mods folder when asked for the styles folder on the settings > appearance step
+
+### Developing
 Maybe? Vivaldi is not exactly on the rise so, who knows.
 
 ### Why do this?
