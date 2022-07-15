@@ -1,0 +1,171 @@
+/* Merge tab bar and addressbar */
+.win.normal .toolbar-mainbar {
+    left: unset;
+    right: unset;
+}
+#main {
+    position: unset;
+}
+
+.maximized #tabs-container:not(.none).top {
+    padding-left: calc(24vw + 145px) !important;   /* Adjust acording to left button, 35px each */
+	padding-right: 170px !important;  /* Adjust acording to number of extension, 35px each*/
+	padding-top: 0px !important;
+	margin-top: 0px;
+	min-height: 30px;
+	transition: 0.3s;
+
+}
+.maximized#browser:has(.UrlBar-PrivateWindowIndicator) #tabs-container:not(.none).top { /*fix private icon in private tab - need to enable experimental web platform feature in vivaldi://flags for the :has() selector to work */
+	 padding-left: calc(24vw + 178px) !important; 
+}
+
+.maximized #tabs-container .resize {
+    min-height: 30px;
+    margin-top: 0px;
+}
+.maximized .tab-group-indicator {
+    top: 0 !important;
+}
+
+.win.normal #titlebar {
+    top: 0px;
+}
+
+.maximized .UrlBar-AddressField {
+    width: 24vw !important;
+    top: 0px !important;
+}
+
+.maximized .win.normal .UrlBar-AddressField {
+    top: 0px;
+}
+
+.maximized .toolbar-mainbar:not(.toolbar-wrap):not( .toolbar-editor section.dialog-preview .toolbar):not(.toolbar.toolbar-droptarget.toolbar-mainbar.toolbar-mailbar.toolbar-large) {  /* move the addressbar and extension bar to tab bar */
+    position: absolute;
+    top: unset; /* dont set it to 0 */
+    left: 35px !important;
+    height: 30px;
+    background: var(--colorAccentBg) !important;
+	border: none !important;
+	transform: translateY(-30px); /* use instead of top =0 to fix showing or not showing empty space above tab */
+}
+.maximized#browser:has(#tabs-subcontainer.top) .toolbar-mainbar:not(.toolbar-wrap):not( .toolbar-editor section.dialog-preview .toolbar):not(.toolbar.toolbar-droptarget.toolbar-mainbar.toolbar-mailbar.toolbar-large) { /* Fix tab stack bar on one liner */
+transform: translateY(-60px); 
+}
+
+.maximized .toolbar-mainbar {
+	background:transparent;
+	border-radius: var(--radiusHalf);
+}
+.toolbar-mainbar {
+     background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
+	 	transition: background-color 0.7s ease-out;
+}
+
+.maximized .win.normal .toolbar-mainbar {
+    left: unset;
+    right: unset;
+	border-radius: var(--radiusHalf)!important;
+}
+
+.color-behind-tabs-on#browser.tabs-top #header {
+	transition:0.7s ease-out;
+}
+
+.maximized #main > div.mainbar > div > div.toolbar-extensions { /* Only affect extension button on mainbar */
+    position: absolute !important;
+    transform: translate(-100%, 0);
+    background-color: var(--colorAccentBg) !important;
+	transition: background-color 0.7s ease-out;
+    left: calc(100vw - 135px) !important;   /* Adjust acordingly*/
+    height: 30px !important;
+	top: 0px;
+	border-radius: var(--radiusHalf)!important;
+}
+.toolbar-mainbar .toolbar-extensions {
+	background-color: transparent;
+}
+.toolbar-mainbar .toolbar-extensions:after, .toolbar-mainbar:after {
+	 display: none !important;
+}
+.maximized .toolbar-mainbar .toolbar-extensions > .button-toolbar > button{
+	height:30px;
+}
+	
+.maximized .toolbar-mainbar > .button-toolbar > button {
+   height:30px;
+}
+
+/* Adjust acordingly*/
+/*.vivaldi {
+    margin-top: -6px !important;  
+}*/
+
+.maximized .vivaldi {
+    margin-top: 0px !important;
+}
+.maximized #header, #main {
+    position: unset;
+}
+
+.maximized #header {
+    height: unset;
+}
+
+.maximized .toolbar-tabbar.sync-and-trash-container {
+		top: 0px !important;
+}
+.maximized .window-buttongroup { 
+	height: unset !important;
+	width: 100px !important;
+	top: 0px !important;
+}
+.maximized #browser.win.win10.tabs-top #header #titlebar .window-buttongroup button:not(.vivaldi) {
+    height: unset;
+}
+.maximized .tabs-at-edge.fullscreen#browser.win.win10.tabs-top #header #titlebar .window-buttongroup button:not(.vivaldi), .tabs-at-edge.maximized#browser.win.win10.tabs-top #header #titlebar .window-buttongroup button:not(.vivaldi) {
+    height: 30px;
+}
+.maximized .win10.normal #tabs-tabbar-container.top {
+	padding-top: 0px !IMPORTANT;
+}
+
+.maximized .UrlBar-PrivateWindowIndicator {
+  /*Fix in private mode indicator when merge bar*/
+	font-size: 0;	
+	padding: 0 6px 0 6px;
+}
+
+.tabs-right#browser.win.win10 .tabs-bottom#browser.win.win10 .tabs-left#browser.win.win10, #browser.win.win10 #header #titlebar .window-buttongroup button {
+    height: 30px;  /* fix some weird window button group height bug on different tab style */
+}
+#browser:not(.tabs-top) .vivaldi {
+    height: 30px;
+    padding: 0;
+}
+
+
+.win #titlebar #pagetitle > span, .linux #titlebar #pagetitle > span {
+    text-align: left;   /* fix page title alignment on different tab mode */
+    margin-left: 38%;
+    width: 42vw;
+}
+
+.win10.normal #tabs-tabbar-container.top {  /* Fix super huge header on window mode */
+    padding-top: 6px;
+}
+
+/* Fix mail tab display */
+
+.maximized#browser:has(.toolbar-mailbar.toolbar-large) #tabs-container:not(.none).top {
+	padding-left: 35px !important; 
+}
+.maximized#browser:has(.toolbar-mailbar.toolbar-large) .mainbar {
+	    top: unset;
+		position:relative;
+}
+.maximized .toolbar.toolbar-droptarget.toolbar-mainbar.toolbar-mailbar.toolbar-large {
+    width: 100vw;
+	left:0px;
+}
